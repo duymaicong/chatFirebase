@@ -22,12 +22,14 @@
                                 @endif
                                 <button type="button" class="btn btn-block btn-primary" wire:click="next">Next</button>
                             </div>
-                            <div class="border-bottom">
+                            <div class="border-bottom border-top ">
                                 <div class="row">
-                                    <div class="col-md-6 text-center">
-                                        <h6>Connection</h6>
+                                    <div class="col-md-6 text-center ">
+                                        <div>
+                                            <h6>Connection</h6>
+                                        </div>
                                     </div>
-                                    <div class="col-md-6 text-center">
+                                    <div class="col-md-6 text-center ">
                                         <h6>Disconnection</h6>
                                     </div>
                                 </div>
@@ -115,14 +117,12 @@
         var listUserConnectCountRef = firebase.database().ref('connection/list-quest/');
         listUserConnectCountRef.on('value', (snapshot) => {
             index = snapshot.val();
-            console.log(index);
             @this.set("listConnect", index);
 
         });
         var listUserDisconnectCountRef = firebase.database().ref('disconnection/list-quest/');
         listUserDisconnectCountRef.on('value', (snapshot) => {
             index = snapshot.val();
-            console.log(index);
             @this.set("listDisconnect", index);
 
         });
@@ -133,8 +133,9 @@
             quest = snapshot.val();
             console.log(quest);
             @this.set("list_quest", quest);
-
         });
+
+        
     </script>
     @endpush
 </div>

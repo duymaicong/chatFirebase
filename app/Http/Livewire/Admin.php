@@ -50,6 +50,7 @@ class Admin extends Component
 
             $database->getReference() // this is the root reference
                 ->update($updates);
+            $this->dispatchBrowserEvent('alert', ['type' => 'success', 'message' => 'Next']);
         } catch (\Throwable $th) {
         }
     }
@@ -74,6 +75,7 @@ class Admin extends Component
 
             $database->getReference() // this is the root reference
                 ->update($updates);
+                $this->dispatchBrowserEvent('alert', ['type' => 'success', 'message' => 'Preve']);
         } catch (\Throwable $th) {
         }
     }
